@@ -1,0 +1,20 @@
+{
+  "name": "create-node-app",
+  "version": "0.0.1",
+  "description": "Simple, unopionated way to create app with Node.js and latest ECMAScript",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha --timeout 30000"
+  },
+  "author": "Gleb Eliseev",
+  "license": "MIT",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "execa": "^1.0.0",
+    "promise": "^8.0.2"
+  },
+  "devDependencies": {
+    "mocha": "^6.1.4"
+  }
+}
