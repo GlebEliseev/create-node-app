@@ -25,6 +25,21 @@ try {
   webpackConfig.pipe(fs.createWriteStream('webpack.config.js'));
   server.pipe(fs.createWriteStream('server.js'));
 
+  let appPackage = {
+    name: 'Project',
+    version: '0.0.1',
+    description: 'Simple Javascript boilerplate created by create-node-app',
+    main: 'index.js',
+    scripts: {
+      start: 'npx webpack && node server.js'
+    }
+  }
+
+  fs.writeFileSync(
+    'package.json',
+    JSON.stringify(appPackage, null, 2)
+  );
+
   fs.mkdirSync('src')
   console.log('src directory has been created')
 } catch (err) {
