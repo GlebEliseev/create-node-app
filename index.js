@@ -57,7 +57,7 @@ try {
 }
 
 try {
-  var packages = ['webpack', 'webpack-cli', 'babel-loader', '@babel/core']
+  var packages = ['webpack', 'webpack-cli', 'babel-loader', '@babel/core', 'style-loader', 'css-loader']
   var args = ['install', '--save', '--save-exact']
 
   let exec = args.concat(packages, ['--verbose'])
