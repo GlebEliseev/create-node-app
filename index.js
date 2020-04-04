@@ -4,7 +4,13 @@ const execa = require('execa')
 const child = require('child_process').spawn
 const Promise = require('promise')
 
-var dir = '../Project'
+var dir = '../'
+var projectName = 'project'
+if (process.argv.length > 2) {
+  projectName = process.argv[process.argv.length - 1]
+}
+dir = dir + projectName
+
 var webpackConfig = fs.createReadStream('./files/webpack.config.js');
 var server = fs.createReadStream('./files/server.js');
 var client = fs.createReadStream('./files/index.js');
@@ -26,7 +32,7 @@ try {
   server.pipe(fs.createWriteStream('server.js'));
 
   let appPackage = {
-    name: 'Project',
+    name: projectName,
     version: '0.0.1',
     description: 'Simple Javascript boilerplate created by create-node-app',
     main: 'index.js',
@@ -83,27 +89,3 @@ try {
 } catch (err) {
   console.error(`chdir: ${err}`);
 }
-
-// NOTE: THIS CODE IS NOT IN THE COURSE WORK
-// try {
-//   process.chdir('../')
-//   console.log(`Current directory: ${process.cwd()}`);
-//   child('npm init -y')
-//   new Promise(function(resolve, reject) {
-//     execa('npm init -y')
-//     .then(function() {
-//       console.log(`npm initialised`);
-//       return execa('npm init -y')
-//     })
-//     .then(function() {
-//       console.log('Success. Initialised in', dir);
-//       resolve()
-//     })
-//     .catch(function(err) {
-//       console.log('Error', err)
-//       return reject(new Error('npm initialization failed'))
-//     })
-//   })
-// } catch (err) {
-//   console.error(`chdir: ${err}`);
-// }
