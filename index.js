@@ -15,6 +15,7 @@ var webpackConfig = fs.createReadStream('./files/webpack.config.js');
 var server = fs.createReadStream('./files/server.js');
 var client = fs.createReadStream('./files/index.js');
 var page = fs.createReadStream('./files/index.html');
+var readme = fs.createReadStream('./files/README.md');
 
 if (!fs.existsSync(dir)) {
   fs.mkdirSync(dir)
@@ -30,6 +31,7 @@ try {
 
   webpackConfig.pipe(fs.createWriteStream('webpack.config.js'));
   server.pipe(fs.createWriteStream('server.js'));
+  readme.pipe(fs.createWriteStream('README.md'));
 
   let appPackage = {
     name: projectName,
