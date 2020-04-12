@@ -36,3 +36,16 @@ code {
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+#Button {
+  width: 200px;
+  height: 30px;
+  border-radius: 20px;
+  color: #ffffff;
+  background-color: #1d2533;
+  outline: none;
+}
+
+#Button:hover {
+  background-color: #34435E;
+}
