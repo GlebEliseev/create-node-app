@@ -15,6 +15,7 @@ var webpackConfig = fs.createReadStream('./files/webpack.config.js');
 var server = fs.createReadStream('./files/server.js');
 var client = fs.createReadStream('./files/index.js');
 var page = fs.createReadStream('./files/index.html');
+var style = fs.createReadStream('./files/style.css');
 var readme = fs.createReadStream('./files/README.md');
 
 if (!fs.existsSync(dir)) {
@@ -60,6 +61,7 @@ try {
 
   client.pipe(fs.createWriteStream('index.js'));
   page.pipe(fs.createWriteStream('index.html'));
+  style.pipe(fs.createWriteStream('style.css'));
 } catch (err) {
   console.error(`chdir: ${err}`);
 }
