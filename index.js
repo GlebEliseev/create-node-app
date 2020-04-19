@@ -1,7 +1,5 @@
-const path = require('path')
 const fs = require('fs')
 const execa = require('execa')
-const child = require('child_process').spawn
 const Promise = require('promise')
 
 var dir = '../'
