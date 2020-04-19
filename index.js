@@ -71,14 +71,13 @@ try {
   var args = ['install', '--save', '--save-exact']
 
   let exec = args.concat(packages, ['--verbose'])
-  console.log(exec)
 
   new Promise(function (resolve, reject) {
     process.chdir('../');
     execa('npm', exec)
       .then(function () {
         console.log(`Current directory: ${process.cwd()}`);
-        console.log(`Execa instaled: `, exec);
+        console.log(`Execa did: npm `, ...exec);
         return execa('npm', ['install'])
       })
       .then(function () {
