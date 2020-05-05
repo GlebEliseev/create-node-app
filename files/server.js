@@ -1,6 +1,5 @@
 "use strict";
 const http = require("http");
-const path = require("path");
 const fileSystem = require("fs");
 
 const hostname = "127.0.0.1";
@@ -10,7 +9,7 @@ const server = http.createServer((req, res) => {
   if (req.url == "/") {
     res.statusCode = 200;
     res.setHeader("Content-Type", "text/html");
-    var readStream = fileSystem.createReadStream(__dirname + "/src/index.html");
+    let readStream = fileSystem.createReadStream(__dirname + "/src/index.html");
     // We replaced all the event handlers with a simple call to readStream.pipe()
     readStream.pipe(res);
   } else {

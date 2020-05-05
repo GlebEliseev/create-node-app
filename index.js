@@ -2,19 +2,19 @@ const fs = require('fs')
 const execa = require('execa')
 const Promise = require('promise')
 
-var dir = '../'
-var projectName = 'project'
+let dir = '../'
+let projectName = 'project'
 if (process.argv.length > 2) {
   projectName = process.argv[process.argv.length - 1]
 }
 dir = dir + projectName
 
-var webpackConfig = fs.createReadStream('./files/webpack.config.js');
-var server = fs.createReadStream('./files/server.js');
-var client = fs.createReadStream('./files/index.js');
-var page = fs.createReadStream('./files/index.html');
-var style = fs.createReadStream('./files/style.css');
-var readme = fs.createReadStream('./files/README.md');
+let webpackConfig = fs.createReadStream('./files/webpack.config.js');
+let server = fs.createReadStream('./files/server.js');
+let client = fs.createReadStream('./files/index.js');
+let page = fs.createReadStream('./files/index.html');
+let style = fs.createReadStream('./files/style.css');
+let readme = fs.createReadStream('./files/README.md');
 
 if (!fs.existsSync(dir)) {
   fs.mkdirSync(dir)
@@ -65,8 +65,8 @@ try {
 }
 
 try {
-  var packages = ['webpack', 'webpack-cli', 'babel-loader', '@babel/core', 'style-loader', 'css-loader']
-  var args = ['install', '--save', '--save-exact']
+  let packages = ['webpack', 'webpack-cli', 'babel-loader', '@babel/core', 'style-loader', 'css-loader']
+  let args = ['install', '--save', '--save-exact']
 
   let exec = args.concat(packages, ['--verbose'])
 
