@@ -4,6 +4,7 @@
   "description": "Simple, unopionated way to create app with Node.js and latest ECMAScript",
   "main": "index.js",
   "scripts": {
+    "create-node-app": "node index.js",
     "start": "node index.js"
   },
   "author": "Gleb Eliseev",
