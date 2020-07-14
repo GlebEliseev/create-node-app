@@ -1,10 +1,12 @@
 {
   "name": "@glebeliseev/create-node-app",
-  "version": "0.9.1",
+  "version": "0.9.9",
+  "bin": {
+    "create-node-app": "./index.js"
+  },
   "description": "Simple, unopionated way to create app with Node.js and latest ECMAScript",
   "main": "index.js",
   "scripts": {
-    "create-node-app": "node index.js",
     "start": "node index.js"
   },
   "author": "Gleb Eliseev",
