@@ -1,8 +1,7 @@
 const fs = require('fs')
 const execa = require('execa')
-const Promise = require('promise')
 
-let dir = '../'
+let dir = './'
 let projectName = 'project'
 if (process.argv.length > 2) {
   projectName = process.argv[process.argv.length - 1]
@@ -70,23 +69,19 @@ try {
 
   let exec = args.concat(packages, ['--verbose'])
 
-  new Promise(function (resolve, reject) {
-    process.chdir('../');
-    execa('npm', exec)
-      .then(function () {
-        console.log(`Current directory: ${process.cwd()}`);
-        console.log(`Execa did: npm `, ...exec);
-        return execa('npm', ['install'])
-      })
-      .then(function () {
-        console.log('Success. Installed packages in', dir);
-        resolve()
-      })
-      .catch(function () {
-        console.log('Error')
-        return reject(new Error('npm installation failed'))
-      })
-  })
+  process.chdir('../');
+  execa('npm', exec)
+    .then(function () {
+      console.log(`Current directory: ${process.cwd()}`);
+      console.log(`Execa did: npm `, ...exec);
+      return execa('npm', ['install'])
+    })
+    .then(function () {
+      console.log('Success. Installed packages in', dir);
+    })
+    .catch(function () {
+      console.log('npm installation failed')
+    })
 } catch (err) {
   console.error(`chdir: ${err}`);
 }

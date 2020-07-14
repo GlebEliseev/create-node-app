@@ -10,7 +10,6 @@
   "author": "Gleb Eliseev",
   "license": "MIT",
   "dependencies": {
-    "execa": "^1.0.0",
-    "promise": "^8.1.0"
+    "execa": "^1.0.0"
   }
 }
