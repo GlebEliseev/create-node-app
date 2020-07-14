@@ -1,15 +1,23 @@
 {
-  "name": "create-node-app",
+  "name": "@glebeliseev/create-node-app",
   "version": "0.9.0",
   "description": "Simple, unopionated way to create app with Node.js and latest ECMAScript",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "mocha --timeout 30000"
   },
   "author": "Gleb Eliseev",
   "license": "MIT",
   "dependencies": {
     "execa": "^1.0.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GlebEliseev/create-node-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GlebEliseev/create-node-app/issues"
+  },
+  "homepage": "https://github.com/GlebEliseev/create-node-app#readme"
 }
