@@ -1,6 +1,6 @@
 {
   "name": "@glebeliseev/create-node-app",
-  "version": "0.9.9",
+  "version": "0.9.10",
   "bin": {
     "create-node-app": "./index.js"
   },

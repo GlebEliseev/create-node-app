@@ -1,5 +1,5 @@
-import { createReadStream, existsSync, mkdirSync, createWriteStream, writeFileSync } from 'fs'
-import execa from 'execa'
+const fs = require('fs')
+const execa = require('execa')
 
 let dir = './'
 let projectName = 'project'
@@ -8,15 +8,15 @@ if (process.argv.length > 2) {
 }
 dir = dir + projectName
 
-let webpackConfig = createReadStream('./files/webpack.config.js');
-let server = createReadStream('./files/server.js');
-let client = createReadStream('./files/index.js');
-let page = createReadStream('./files/index.html');
-let style = createReadStream('./files/style.css');
-let readme = createReadStream('./files/README.md');
+let webpackConfig = fs.createReadStream('./files/webpack.config.js');
+let server = fs.createReadStream('./files/server.js');
+let client = fs.createReadStream('./files/index.js');
+let page = fs.createReadStream('./files/index.html');
+let style = fs.createReadStream('./files/style.css');
+let readme = fs.createReadStream('./files/README.md');
 
-if (!existsSync(dir)) {
-  mkdirSync(dir)
+if (!fs.existsSync(dir)) {
+  fs.mkdirSync(dir)
   console.log(dir, 'directory has been created')
 } else {
   console.log('Directory already exists')
@@ -27,9 +27,9 @@ try {
   process.chdir(dir);
   console.log(`New directory: ${process.cwd()}`);
 
-  webpackConfig.pipe(createWriteStream('webpack.config.js'));
-  server.pipe(createWriteStream('server.js'));
-  readme.pipe(createWriteStream('README.md'));
+  webpackConfig.pipe(fs.createWriteStream('webpack.config.js'));
+  server.pipe(fs.createWriteStream('server.js'));
+  readme.pipe(fs.createWriteStream('README.md'));
 
   let appPackage = {
     name: projectName,
@@ -41,12 +41,12 @@ try {
     }
   }
 
-  writeFileSync(
+  fs.writeFileSync(
     'package.json',
     JSON.stringify(appPackage, null, 2)
   );
 
-  mkdirSync('src')
+  fs.mkdirSync('src')
   console.log('src directory has been created')
 } catch (err) {
   console.error(`chdir: ${err}`);
@@ -56,9 +56,9 @@ try {
   process.chdir('src');
   console.log(`New directory: ${process.cwd()}`);
 
-  client.pipe(createWriteStream('index.js'));
-  page.pipe(createWriteStream('index.html'));
-  style.pipe(createWriteStream('style.css'));
+  client.pipe(fs.createWriteStream('index.js'));
+  page.pipe(fs.createWriteStream('index.html'));
+  style.pipe(fs.createWriteStream('style.css'));
 } catch (err) {
   console.error(`chdir: ${err}`);
 }
